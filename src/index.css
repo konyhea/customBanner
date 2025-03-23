@@ -290,21 +290,30 @@ a {
 }
 
 .drag-drop-zone .selected-image img {
-  width: 40%;
+  width: 30%;
 }
 
 
-
-.drag-drop-zone .selected-image  .actions {
-    display: flex;
-    gap: 1em;
+.drag-drop-zone .drag-files {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.drag-drop-zone .selected-image  .actions button, 
-.drag-drop-zone .selected-image  .actionsspan {
+.drag-drop-zone .drag-files  button {
   border: none;
-  border: none;
-  padding: 6px 10px;
-  text-align: center;
-  border-radius: 6px;
+  outline: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
+
+
+.drag-drop-zone .drop-files {
+  display: grid;
+  place-content: center;
+  padding: 1.5em;
+  background: red;
+}
+

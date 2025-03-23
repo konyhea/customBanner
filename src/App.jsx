@@ -25,7 +25,6 @@ function App() {
   );
   const [bannerFile, setBannerFile] = useState(null);
 
-
   // Handle logo file drop
   const onDropLogo = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -63,24 +62,24 @@ function App() {
     getRootProps: getLogoRootProps,
     getInputProps: getLogoInputProps,
     isDragActive: isLogoDragActive,
-  } = useDropzone({ 
+  } = useDropzone({
     onDrop: onDropLogo,
     accept: {
-      'image/*': ['.jpeg', '.jpg', '.png', '.gif']
+      "image/*": [".jpeg", ".jpg", ".png", ".gif"],
     },
-    maxSize: 5242880 // 5MB
+    maxSize: 5242880, // 5MB
   });
 
   const {
     getRootProps: getBannerRootProps,
     getInputProps: getBannerInputProps,
     isDragActive: isBannerDragActive,
-  } = useDropzone({ 
+  } = useDropzone({
     onDrop: onDropBanner,
     accept: {
-      'image/*': ['.jpeg', '.jpg', '.png', '.gif']
+      "image/*": [".jpeg", ".jpg", ".png", ".gif"],
     },
-    maxSize: 5242880 // 5MB
+    maxSize: 5242880, // 5MB
   });
 
   // Upload logo image to Cloudinary
@@ -93,12 +92,17 @@ function App() {
 
     let formData = new FormData();
     formData.append("file", logoFile);
-    formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+    formData.append(
+      "upload_preset",
+      import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+    );
     formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${
+          import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+        }/image/upload`,
         {
           method: "POST",
           body: formData,
@@ -107,7 +111,9 @@ function App() {
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(`Upload failed: ${response.statusText}. Details: ${errorText}`);
+        throw new Error(
+          `Upload failed: ${response.statusText}. Details: ${errorText}`
+        );
       }
 
       const data = await response.json();
@@ -119,9 +125,8 @@ function App() {
     }
   };
 
-
-    // Upload banner image to Cloudinary
-  const uploadBannerImage  = async () => {
+  // Upload banner image to Cloudinary
+  const uploadBannerImage = async () => {
     console.log("logoFile state:", bannerFile); // Debugging: Log the logoFile state
     if (!bannerFile) {
       console.log("No file selected for upload");
@@ -130,12 +135,17 @@ function App() {
 
     let formData = new FormData();
     formData.append("file", bannerFile);
-    formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+    formData.append(
+      "upload_preset",
+      import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+    );
     formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${
+          import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+        }/image/upload`,
         {
           method: "POST",
           body: formData,
@@ -144,7 +154,9 @@ function App() {
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(`Upload failed: ${response.statusText}. Details: ${errorText}`);
+        throw new Error(
+          `Upload failed: ${response.statusText}. Details: ${errorText}`
+        );
       }
 
       const data = await response.json();
@@ -155,9 +167,6 @@ function App() {
       console.error("Error uploading logo file:", error);
     }
   };
-
-
-
 
   // Remove logo
   const removeLogo = () => {
@@ -414,11 +423,29 @@ function App() {
                       <input {...getLogoInputProps()} />
                       {isLogoDragActive ? (
                         <div className="drop-files">
-                          <p>Drop the file here...</p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="#5f6368"
+                          >
+                            <path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206l-64 62-56-56 160-160 160 160-56 56-64-62v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h100v80H260Zm220-280Z" />
+                          </svg>
                         </div>
                       ) : (
                         <div className="drag-files">
-                          <p>Drag & drop a logo, or click to select one</p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="#000000"
+                          >
+                            <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z" />
+                          </svg>
+                          <p>Drag & drop a logo </p>
+                          <button>click to select one</button>
                         </div>
                       )}
                     </div>
@@ -457,13 +484,29 @@ function App() {
                       <input {...getBannerInputProps()} />
                       {isBannerDragActive ? (
                         <div className="drop-files">
-                          <p>Drop the file here...</p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="#5f6368"
+                          >
+                            <path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206l-64 62-56-56 160-160 160 160-56 56-64-62v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h100v80H260Zm220-280Z" />
+                          </svg>
                         </div>
                       ) : (
                         <div className="drag-files">
-                          <p>
-                            Drag & drop a banner image, or click to select one
-                          </p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="#000000"
+                          >
+                            <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z" />
+                          </svg>
+                          <p>Drag & drop a banner image</p>
+                          <button>click to select one</button>
                         </div>
                       )}
                     </div>
