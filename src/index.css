@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* styling the form container */
@@ -27,6 +27,7 @@ body {
   position: relative;
   margin: 1.15em;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 .ads-banner-container .close-btn-container {
@@ -54,19 +55,36 @@ body {
 }
 
 .ads-banner-content .ads-banner-logo {
+  width: 5%;
   max-width: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 20px;
-  right: 15px;
+  height: 64px;
+  height: auto;
+  /* margin-top: 1em; */
 }
 
 .ads-banner-content .ads-banner-logo img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  margin-top: 1em;
 }
 
-.ads-banner-text-container h3 {
+.ads-banner-content .ads-banner-image {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.ads-banner-content .ads-banner-image img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ads-banner-text-container .headline-container h3 {
+  width: fit-content;
+  text-wrap: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   /* margin: 0; */
   padding-right: 10%;
   /* line-height: 115%; */
@@ -80,7 +98,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-
 .cta-btn-container .cta-btn {
   background: none;
   outline: 1px solid black;
@@ -89,18 +106,63 @@ body {
   display: flex;
   padding: 4px;
   align-items: center;
-  gap: .2em;
-  font-size: .8rem;
+  gap: 0.2em;
+  font-size: 0.8rem;
   cursor: pointer;
-}
-
-.cta-btn-container .cta-btn::hover {
-background: red;
 }
 
 a {
   text-decoration: none;
 }
+
+@media (min-width: 670px) {
+  .ads-banner-content {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+  }
+
+  .ads-banner-content .ads-banner-text-container {
+    order: -1;
+  }
+
+  .ads-banner-text-container h3 {
+    padding-right: 0;
+  }
+
+  .ads-banner-text-container p {
+    padding-right: 0;
+  }
+
+  .ads-banner-content .ads-banner-logo {
+    width: 4%;
+    max-width: 100%;
+    height: 64px;
+    height: auto;
+    order: 1;
+    margin-top: auto;
+    /* margin-top: 1em; */
+  }
+
+  .ads-banner-content .ads-banner-logo img {
+    width: 100%;
+    /* margin-bottom: 2em; */
+  }
+
+  .ads-banner-content .ads-banner-image {
+    width: 100%;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+  }
+
+  .ads-banner-content .ads-banner-image img {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
 /* styling the form header */
 .form-container h2 {
   font-size: 1.5rem;
@@ -109,11 +171,12 @@ a {
 
 /* styling the form legend */
 .form-container fieldset {
-  border: none;
+  /* border: 2px solid green; */
   display: flex;
   padding: 0 24px 16px;
   flex-direction: column;
   gap: 0.5em;
+  border-radius: 8px;
 }
 
 .form-container fieldset label {
@@ -181,4 +244,67 @@ a {
 }
 .custom-file-input:active {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+
+
+
+/* styling the drag and drop container */
+
+.drag-drop-container {
+  padding: .1em;
+  cursor: pointer;
+  /* border: 2px solid beige; */
+  /* background: red; */
+}
+
+
+.drag-drop-zone {
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1.7px dashed gray;
+  /* background: green; */
+}
+
+
+.drag-drop-zone  .drag-files  > .drag-file-content{
+  display: flex;
+  flex-direction: column;
+  /* background: red; */
+  align-items: center;
+  justify-content: center;
+}
+
+.drag-drop-zone  .drag-files  > .drag-file-content p {
+  text-align: center;
+}
+
+
+.drag-drop-zone .selected-image {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.drag-drop-zone .selected-image img {
+  width: 40%;
+}
+
+
+
+.drag-drop-zone .selected-image  .actions {
+    display: flex;
+    gap: 1em;
+}
+
+.drag-drop-zone .selected-image  .actions button, 
+.drag-drop-zone .selected-image  .actionsspan {
+  border: none;
+  border: none;
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 6px;
 }
