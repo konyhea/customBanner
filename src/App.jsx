@@ -239,6 +239,7 @@ function App() {
     <div className="banner-container">
       {display && (
         <div
+        data-testid="ads-banner-container"
           className="ads-banner-container"
           style={{
             backgroundColor: bannerStyle.backgroundColor,
@@ -420,7 +421,7 @@ function App() {
                     </div>
                   ) : (
                     <div {...getLogoRootProps({ className: "dropzone" })}>
-                      <input {...getLogoInputProps()} />
+                      <input id="logo" {...getLogoInputProps()} name='logo'/>
                       {isLogoDragActive ? (
                         <div className="drop-files">
                           <svg
@@ -481,7 +482,7 @@ function App() {
                     </div>
                   ) : (
                     <div {...getBannerRootProps({ className: "dropzone" })}>
-                      <input {...getBannerInputProps()} />
+                      <input id="bannerImage" {...getBannerInputProps()} name="bannerImage" />
                       {isBannerDragActive ? (
                         <div className="drop-files">
                           <svg
