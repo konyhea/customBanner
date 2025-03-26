@@ -239,7 +239,7 @@ function App() {
     <div className="banner-container">
       {display && (
         <div
-        data-testid="ads-banner-container"
+          data-testid="ads-banner-container"
           className="ads-banner-container"
           style={{
             backgroundColor: bannerStyle.backgroundColor,
@@ -272,11 +272,19 @@ function App() {
               <div className="copy-text-container">
                 <p className="copy-text">{bannerCopy.copyText}</p>
               </div>
+              {/* call to action button */}
               <div className="cta-btn-container">
-                <a href="#">
-                  <button className="cta-btn">
+                <a href="#" className="cta-link">
+                  <button
+                    className="cta-btn"
+                    aria-label={bannerCopy.ctaBtnText}
+                  >
                     <span className="cta-text">{bannerCopy.ctaBtnText}</span>
-                    <img src={Arrow} alt="Arrow icon indicating action" />
+                    <img
+                      src={Arrow}
+                      alt="" // Empty alt since arrow is decorative
+                      className="cta-arrow"
+                    />
                   </button>
                 </a>
               </div>
@@ -421,7 +429,7 @@ function App() {
                     </div>
                   ) : (
                     <div {...getLogoRootProps({ className: "dropzone" })}>
-                      <input id="logo" {...getLogoInputProps()} name='logo'/>
+                      <input id="logo" {...getLogoInputProps()} name="logo" />
                       {isLogoDragActive ? (
                         <div className="drop-files">
                           <svg
@@ -482,7 +490,11 @@ function App() {
                     </div>
                   ) : (
                     <div {...getBannerRootProps({ className: "dropzone" })}>
-                      <input id="bannerImage" {...getBannerInputProps()} name="bannerImage" />
+                      <input
+                        id="bannerImage"
+                        {...getBannerInputProps()}
+                        name="bannerImage"
+                      />
                       {isBannerDragActive ? (
                         <div className="drop-files">
                           <svg

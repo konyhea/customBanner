@@ -1,1 +1,324 @@
+/* styling the app component */
+.banner-container {
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  /* overflow: hidden; */
+}
+
+/* styling the form container */
+
+.ads-banner-control {
+  margin-top: 5em;
+}
+
+.ads-banner-container {
+  width: 100%;
+  position: relative;
+  margin: 1.15em;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.ads-banner-container .close-btn-container {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  z-index: 999;
+}
+
+.close-btn-container button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+/* styling the cancel button */
+
+.ads-banner-content {
+  padding: 0 10px 12px;
+  position: relative;
+  /* background: red; */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ads-banner-content .ads-banner-logo {
+  width: 5%;
+  max-width: 100%;
+  height: 64px;
+  height: auto;
+  /* margin-top: 1em; */
+}
+
+.ads-banner-content .ads-banner-logo img {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.ads-banner-content .ads-banner-image {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.ads-banner-content .ads-banner-image img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ads-banner-text-container .headline-container h3 {
+  width: fit-content;
+  text-wrap: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* margin: 0; */
+  padding-right: 10%;
+  /* line-height: 115%; */
+  font-size: 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.ads-banner-text-container p {
+  font-size: 0.9rem;
+  padding-right: 15%;
+  font-family: "Roboto", sans-serif;
+}
+
+.cta-link {
+  text-decoration: none; /* Remove default link underline */
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+.cta-btn:hover .cta-text {
+  text-decoration: underline;
+}
+
+.cta-btn:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+.cta-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 670px) {
+  .ads-banner-content {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+  }
+
+  .ads-banner-content .ads-banner-text-container {
+    order: -1;
+  }
+
+  .ads-banner-text-container h3 {
+    padding-right: 0;
+  }
+
+  .ads-banner-text-container p {
+    padding-right: 0;
+  }
+
+  .ads-banner-content .ads-banner-logo {
+    width: 4%;
+    max-width: 100%;
+    height: 64px;
+    height: auto;
+    order: 1;
+    margin-top: auto;
+    /* margin-top: 1em; */
+  }
+
+  .ads-banner-content .ads-banner-logo img {
+    width: 100%;
+    /* margin-bottom: 2em; */
+  }
+
+  .ads-banner-content .ads-banner-image {
+    width: 100%;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+  }
+
+  .ads-banner-content .ads-banner-image img {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* styling the form header */
+.form-container h2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* styling the form legend */
+.form-container fieldset {
+  /* border: 2px solid green; */
+  display: flex;
+  padding: 0 24px 16px;
+  flex-direction: column;
+  gap: 0.5em;
+  border-radius: 8px;
+}
+
+.form-container fieldset label {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.form-container fieldset input[type="color"] {
+  border: none;
+  outline: none;
+  --webkit-appearance: none;
+  --moz-appearance: none;
+  --ms-appearance: none;
+  width: 150px;
+  padding: 1px;
+  cursor: crosshair;
+  border-radius: 9px;
+}
+
+.form-container fieldset input[type="text"] {
+  border: none;
+  outline: none;
+  --webkit-appearance: none;
+  --moz-appearance: none;
+  --ms-appearance: none;
+  background: #f2f2f2;
+  padding: 10px 10px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.form-container fieldset input[type="text"]:focus {
+  background: white;
+  outline: 1px solid #36c;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.6);
+  transition: outline 0.7s ease-in-out, box-shadow 0.7s ease-in-out;
+}
+
+.form-container fieldset input[type="text"]:focus::placeholder {
+  color: transparent;
+  transition: color 0.06s ease-in-out;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input {
+  content: "Select some files";
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover {
+  border-color: black;
+}
+.custom-file-input:active {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+
+
+
+/* styling the drag and drop container */
+
+.drag-drop-container {
+  padding: .1em;
+  cursor: pointer;
+  /* border: 2px solid beige; */
+  /* background: red; */
+}
+
+
+.drag-drop-zone {
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1.7px dashed gray;
+  /* background: green; */
+}
+
+
+.drag-drop-zone  .drag-files  > .drag-file-content{
+  display: flex;
+  flex-direction: column;
+  /* background: red; */
+  align-items: center;
+  justify-content: center;
+}
+
+.drag-drop-zone  .drag-files  > .drag-file-content p {
+  text-align: center;
+}
+
+
+.drag-drop-zone .selected-image {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.drag-drop-zone .selected-image img {
+  width: 30%;
+}
+
+
+.drag-drop-zone .drag-files {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.drag-drop-zone .drag-files  button {
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.drag-drop-zone .drop-files {
+  display: grid;
+  place-content: center;
+  padding: 1.5em;
+}
 
