@@ -11,6 +11,7 @@ function App() {
   const [logoDataURL, setLogoDataURL] = useState(
     localStorage.getItem("logoDataURL") || null
   );
+
   const [logoUploadedURL, setLogoUploadedURL] = useState(
     localStorage.getItem("logoUploadedURL") || null
   );
@@ -99,6 +100,7 @@ function App() {
     formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
     try {
+      debugger;
       const response = await fetch(
         `https://api.cloudinary.com/v1_1/${
           import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
@@ -274,19 +276,18 @@ function App() {
               </div>
               {/* call to action button */}
               <div className="cta-btn-container">
-                <a href="#" className="cta-link">
-                  <button
-                    className="cta-btn"
-                    aria-label={bannerCopy.ctaBtnText}
-                  >
-                    <span className="cta-text">{bannerCopy.ctaBtnText}</span>
-                    <img
-                      src={Arrow}
-                      alt="" // Empty alt since arrow is decorative
-                      className="cta-arrow"
-                    />
-                  </button>
-                </a>
+                <button
+                  className="cta-btn"
+                  aria-label={bannerCopy.ctaBtnText}
+                  onClick={() => (window.location.href = "#")} // Or your actual link
+                >
+                  <span className="cta-text">{bannerCopy.ctaBtnText}</span>
+                  <img
+                    src={Arrow}
+                    alt="" // Empty alt since arrow is decorative
+                    className="cta-arrow"
+                  />
+                </button>
               </div>
             </div>
           </div>
@@ -412,10 +413,13 @@ function App() {
                       <img src={logoDataURL} alt="selected file" />
                       <div className="actions">
                         {logoUploadedURL ? (
-                          <span className="upload">Uploaded!</span>
+                          <span className="upload">Uploaded✅</span>
                         ) : (
                           <button
-                            onClick={uploadLogoImage}
+                            onClick={async (e) => {
+                              e.preventDefault();
+                              await uploadLogoImage();
+                            }}
                             className="upload-btn"
                             disabled={!logoFile}
                           >
@@ -473,10 +477,13 @@ function App() {
                       <img src={bannerDataURL} alt="" />
                       <div className="actions">
                         {bannerUploadedURL ? (
-                          <span className="upload">Uploaded!</span>
+                          <span className="upload">Uploaded✅</span>
                         ) : (
                           <button
-                            onClick={uploadBannerImage}
+                            onClick={async (e) => {
+                              e.preventDefault();
+                              await uploadBannerImage();
+                            }}
                             className="upload-btn"
                             disabled={!bannerFile}
                           >
