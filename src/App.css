@@ -123,6 +123,13 @@
   transition: transform 0.2s ease;
 }
 
+.seperator {
+  display: none;
+  width: 2px;
+  height: 110px;
+  /* background: red; */
+}
+
 @media (min-width: 710px) {
   .ads-banner-content {
      padding: 15px 10px 12px;
@@ -186,6 +193,18 @@
   }
 }
 
+@media (min-width: 1140px) {
+
+  .ads-banner-text-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: .9em;
+  }
+  .seperator {
+    display: block;
+  }
+}
 /* styling the form header */
 .form-container h2 {
   font-size: 1.5rem;

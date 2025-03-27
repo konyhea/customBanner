@@ -4,8 +4,9 @@ import "./App.css";
 import Close from "./assets/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 import Arrow from "./assets/arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 
-const DEFAULT_LOGO = '/public/Citi.svg.png'
-const DEFAULT_BANNER = '/public/Citi-red.svg'
+const DEFAULT_LOGO = "/Citi.svg.png";
+const DEFAULT_BANNER = "/Citi-red.svg";
+
 function App() {
   const [display, setDisplay] = useState(true);
 
@@ -270,13 +271,21 @@ function App() {
               )}
             </div>
             <div className="ads-banner-text-container">
-              <div className="headline-container">
-                <h3 className="headine-copy-text">{bannerCopy.headline}</h3>
-              </div>
-              <div className="copy-text-container">
-                <p className="copy-text">{bannerCopy.copyText}</p>
+              <div className="text-container">
+                <div className="headline-container">
+                  <h3 className="headine-copy-text">{bannerCopy.headline}</h3>
+                </div>
+                <div className="copy-text-container">
+                  <p className="copy-text">{bannerCopy.copyText}</p>
+                </div>
               </div>
               {/* call to action button */}
+              <div
+                style={{
+                  background: bannerStyle.color,
+                }}
+                className="seperator"
+              ></div>
               <div className="cta-btn-container">
                 <button
                   className="cta-btn"
@@ -293,6 +302,7 @@ function App() {
               </div>
             </div>
           </div>
+
           <div className="close-btn-container">
             <button
               className="close-btn"
@@ -312,7 +322,7 @@ function App() {
       <div className="ads-banner-control">
         <div className="form-container">
           <form
-            action=""
+            onSubmit={(e) => e.preventDefault()}
             aria-labelledby="form-title"
             className="form-container"
           >
@@ -479,7 +489,7 @@ function App() {
                       <img src={bannerDataURL} alt="" />
                       <div className="actions">
                         {bannerUploadedURL ? (
-                          <span className="upload">Uploaded✅</span>
+                          <span className="upload">Uploaded ✅</span>
                         ) : (
                           <button
                             onClick={async (e) => {
