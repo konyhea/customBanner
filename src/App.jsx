@@ -4,6 +4,7 @@ import "./App.css";
 import Close from "./assets/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 import Arrow from "./assets/arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 
+
 function App() {
   const [display, setDisplay] = useState(true);
 
@@ -100,7 +101,7 @@ function App() {
     formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
     try {
-      debugger;
+      // debugger;
       const response = await fetch(
         `https://api.cloudinary.com/v1_1/${
           import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
@@ -204,9 +205,9 @@ function App() {
     return savedBannerCopy && savedBannerCopy !== "null"
       ? JSON.parse(savedBannerCopy)
       : {
-          headline: "The best Gift is here",
-          copyText: "The best is here",
-          ctaBtnText: "Click Here",
+          headline: "THE VALUE OF TIME",
+          copyText: "Citibank was the first to save time",
+          ctaBtnText: "Sign up",
         };
   });
 
@@ -413,7 +414,7 @@ function App() {
                       <img src={logoDataURL} alt="selected file" />
                       <div className="actions">
                         {logoUploadedURL ? (
-                          <span className="upload">Uploaded✅</span>
+                          <span className="upload">Uploaded ✅</span>
                         ) : (
                           <button
                             onClick={async (e) => {
