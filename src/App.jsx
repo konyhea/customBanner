@@ -4,26 +4,27 @@ import "./App.css";
 import Close from "./assets/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 import Arrow from "./assets/arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 
-
+const DEFAULT_LOGO = '/public/Citi.svg.png'
+const DEFAULT_BANNER = '/public/Citi-red.svg'
 function App() {
   const [display, setDisplay] = useState(true);
 
   // State for logo
   const [logoDataURL, setLogoDataURL] = useState(
-    localStorage.getItem("logoDataURL") || null
+    localStorage.getItem("logoDataURL") || DEFAULT_LOGO
   );
 
   const [logoUploadedURL, setLogoUploadedURL] = useState(
-    localStorage.getItem("logoUploadedURL") || null
+    localStorage.getItem("logoUploadedURL") || DEFAULT_LOGO
   );
   const [logoFile, setLogoFile] = useState(null);
 
   // State for banner image
   const [bannerDataURL, setBannerDataURL] = useState(
-    localStorage.getItem("bannerDataURL") || null
+    localStorage.getItem("bannerDataURL") || DEFAULT_BANNER
   );
   const [bannerUploadedURL, setBannerUploadedURL] = useState(
-    localStorage.getItem("bannerUploadedURL") || null
+    localStorage.getItem("bannerUploadedURL") || DEFAULT_BANNER
   );
   const [bannerFile, setBannerFile] = useState(null);
 

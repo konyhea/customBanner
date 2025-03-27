@@ -125,10 +125,12 @@
 
 @media (min-width: 710px) {
   .ads-banner-content {
+     padding: 15px 10px 12px;
     display: flex;
     flex-direction: row;
     gap: 3em;
   }
+ 
 
   .ads-banner-content .ads-banner-text-container {
     order: -1;
