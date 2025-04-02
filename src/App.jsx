@@ -287,12 +287,15 @@ function App() {
                 </div>
               </div>
               {/* call to action button */}
-              <div
-                style={{
-                  background: bannerStyle.color,
-                }}
-                className="seperator"
-              ></div>
+              {isVisible && (
+                <div
+                  style={{
+                    background: bannerStyle.color,
+                  }}
+                  className="seperator"
+                ></div>
+              )}
+
               {isVisible && (
                 <div className="cta-btn-container">
                   <button
