@@ -367,9 +367,49 @@
   border: none;
   padding: 8px 10px;
   border-radius: 5px;
+  /* background: red; */
+  display: flex;
+  align-items: center;
+  gap: .3em;
+  cursor: pointer;
 }
 
 .drag-drop-zone .actions  .upload {
   padding: 8px 10px;
   border-radius: 5px;
+}
+
+/* STYLING FOR ERROR FOR HEADLINE TEXT */
+
+.heading-text-input:not(:focus):invalid {
+  border: 2px dashed red;
+}
+
+.heading-text-input:not(:focus):invalid ~ .headline-custom-error {
+  visibility: visible;
+  animation: fadeIn 0.2s ease-in; 
+}
+
+.headline-custom-error {
+  visibility: hidden;
+  display: block;
+  color: #D32F2F;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  opacity: 1; 
+  transform: translateY(-4px); 
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/*  settling the styling for helper texts */
+#bg-desc {
+  color: gray;
+  font-size: .9rem;
+  margin: 0;
 }

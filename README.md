@@ -75,7 +75,15 @@ Before running the project, ensure you have the following installed:
 
    ```
 
-4. **Open the Application:**:
+4. **Run the test:**:
+
+   ```bash
+    npm run test
+
+
+   ```
+
+5. **Open the Application:**:
    Visit http://localhost:3000 in your browser to view the app.
 
 ---

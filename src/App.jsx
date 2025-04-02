@@ -3,6 +3,9 @@ import { useDropzone } from "react-dropzone";
 import "./App.css";
 import Close from "./assets/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 import Arrow from "./assets/arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
+import Delete from './assets/delete_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
+import Upload from './assets/upload_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
+
 
 const DEFAULT_LOGO = "/Citi.svg.png";
 const DEFAULT_BANNER = "/Citi-red.svg";
@@ -335,6 +338,7 @@ function App() {
               >
                 Background color
               </label>
+              {/* <p id="bg-desc">set banner background color </p> */}
               <input
                 type="color"
                 id="backgroundColor"
@@ -343,6 +347,7 @@ function App() {
                 onChange={handleBannerStyle}
                 className="backgroundColor-input"
                 aria-label="Background color picker"
+                arial-describedby="bg-desc"
               />
 
               {/* Text color picker */}
@@ -373,10 +378,19 @@ function App() {
                 value={bannerCopy.headline}
                 onChange={handleCopy}
                 className="heading-text-input"
-                placeholder="Enter your headline"
+                placeholder="Enter your headline (e.g., 'Spring Sale – 50% Off!')"
                 required
-                aria-label="Heading Text"
+                aria-label="Headline"
+                maxLength={30}
+                aria-describedby="headline-error"
               />
+              <span 
+               id="headline-error"
+              className="headline-custom-error"
+                role="alert"
+              >
+                ⚠️ Every great story needs a headline—what’s yours?
+              </span>
 
               {/* Copy text input */}
               <label
@@ -427,6 +441,7 @@ function App() {
                         {logoUploadedURL ? (
                           <span className="upload">Uploaded ✅</span>
                         ) : (
+                          
                           <button
                             onClick={async (e) => {
                               e.preventDefault();
@@ -435,10 +450,12 @@ function App() {
                             className="upload-btn"
                             disabled={!logoFile}
                           >
+                            <img src={Upload} alt="" />
                             Upload
                           </button>
                         )}
                         <button onClick={removeLogo} className="cancel-btn">
+                          <img src={Delete} alt="" />
                           Remove
                         </button>
                       </div>
@@ -499,10 +516,12 @@ function App() {
                             className="upload-btn"
                             disabled={!bannerFile}
                           >
+                            <img src={Upload} alt="" />
                             Upload
                           </button>
                         )}
                         <button onClick={removeBanner} className="cancel-btn">
+                          <img src={Delete} alt="" />
                           Remove
                         </button>
                       </div>
