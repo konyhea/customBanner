@@ -3,14 +3,14 @@ import { useDropzone } from "react-dropzone";
 import "./App.css";
 import Close from "./assets/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 import Arrow from "./assets/arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
-import Delete from './assets/delete_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
-import Upload from './assets/upload_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
-
+import Delete from "./assets/delete_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
+import Upload from "./assets/upload_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg";
 
 const DEFAULT_LOGO = "/Citi.svg.png";
 const DEFAULT_BANNER = "/Citi-red.svg";
 
 function App() {
+  const [isVisible, setIsVisible] = useState(true);
   const [display, setDisplay] = useState(true);
 
   // State for logo
@@ -243,6 +243,10 @@ function App() {
     }));
   };
 
+  const handleToggle = () => {
+    setIsVisible((prev) => !prev);
+  };
+
   return (
     <div className="banner-container">
       {display && (
@@ -289,20 +293,22 @@ function App() {
                 }}
                 className="seperator"
               ></div>
-              <div className="cta-btn-container">
-                <button
-                  className="cta-btn"
-                  aria-label={bannerCopy.ctaBtnText}
-                  onClick={() => (window.location.href = "#")} // Or your actual link
-                >
-                  <span className="cta-text">{bannerCopy.ctaBtnText}</span>
-                  <img
-                    src={Arrow}
-                    alt="" // Empty alt since arrow is decorative
-                    className="cta-arrow"
-                  />
-                </button>
-              </div>
+              {isVisible && (
+                <div className="cta-btn-container">
+                  <button
+                    className="cta-btn"
+                    aria-label={bannerCopy.ctaBtnText}
+                    onClick={() => (window.location.href = "#")} // Or your actual link
+                  >
+                    <span className="cta-text">{bannerCopy.ctaBtnText}</span>
+                    <img
+                      src={Arrow}
+                      alt="" // Empty alt since arrow is decorative
+                      className="cta-arrow"
+                    />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -378,15 +384,15 @@ function App() {
                 value={bannerCopy.headline}
                 onChange={handleCopy}
                 className="heading-text-input"
-                placeholder="Enter your headline (e.g., 'Spring Sale – 50% Off!')"
+                placeholder="Enter your headline (e.g. 'Spring - 50%)"
                 required
                 aria-label="Headline"
                 maxLength={30}
                 aria-describedby="headline-error"
               />
-              <span 
-               id="headline-error"
-              className="headline-custom-error"
+              <span
+                id="headline-error"
+                className="headline-custom-error"
                 role="alert"
               >
                 ⚠️ Every great story needs a headline—what’s yours?
@@ -428,6 +434,33 @@ function App() {
                 aria-label="CTA button"
               />
 
+              {/* handling the visibilty of  cta button in banner */}
+              <div className="visibility-container">
+                <div className="visibility-text-container">
+                  <p className="visibility-cta-text">Toggle CTA Button</p>
+                  <p className="visibility-helper-text">
+                    Set visibility of cta button in the banner
+                  </p>
+                  <div className="toggle-switch">
+                    <input
+                      type="checkbox"
+                      id="switch"
+                      checked={!isVisible}
+                      onChange={handleToggle}
+                      aria-label="Toggle display"
+                    />
+                    <label
+                      htmlFor="switch"
+                      role="switch"
+                      aria-checked={!isVisible}
+                      className="toggle-button"
+                    >
+                      <span className="sr-only">Toggle content visibility</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
               {/* Logo upload section */}
               <label htmlFor="logo" className="banner-logo-upload">
                 Upload Logo
@@ -441,7 +474,6 @@ function App() {
                         {logoUploadedURL ? (
                           <span className="upload">Uploaded ✅</span>
                         ) : (
-                          
                           <button
                             onClick={async (e) => {
                               e.preventDefault();
