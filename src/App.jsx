@@ -440,27 +440,32 @@ function App() {
               {/* handling the visibilty of  cta button in banner */}
               <div className="visibility-container">
                 <div className="visibility-text-container">
-                  <p className="visibility-cta-text">Toggle CTA Button</p>
-                  <p className="visibility-helper-text">
-                    Set visibility of cta button in the banner
+                  <p className="visibility-cta-text" id="toggle-desc">
+                    Toggle CTA Button
                   </p>
-                  <div className="toggle-switch">
-                    <input
-                      type="checkbox"
-                      id="switch"
-                      checked={!isVisible}
-                      onChange={handleToggle}
-                      aria-label="Toggle display"
-                    />
-                    <label
-                      htmlFor="switch"
-                      role="switch"
-                      aria-checked={!isVisible}
-                      className="toggle-button"
-                    >
-                      <span className="sr-only">Toggle content visibility</span>
-                    </label>
-                  </div>
+                  <p
+                    className="visibility-helper-text"
+                    aria-describedby="toggle-desc"
+                  >
+                    Set visibility of CTA button in the banner
+                  </p>
+                </div>
+                <div className="toggle-switch">
+                  <input
+                    type="checkbox"
+                    id="switch"
+                    checked={!isVisible}
+                    onChange={handleToggle}
+                    aria-label="Toggle display"
+                  />
+                  <label
+                    htmlFor="switch"
+                    role="switch"
+                    aria-checked={!isVisible}
+                    className="toggle-button"
+                  >
+                    <span className="sr-only">Toggle content visibility</span>
+                  </label>
                 </div>
               </div>
 
