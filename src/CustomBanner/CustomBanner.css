@@ -1,0 +1,742 @@
+/* styling the app component */
+.banner-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 1em;
+}
+
+.bannerWrapper {
+  width: 100%;
+  /* width: 100vw; */
+}
+
+.banner-container {
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  border: 0.8px solid black;
+  box-shadow: 0 0 50px #ccc;
+  -webkit-box-shadow: -1px 0px 12px 5px #ccc;
+  -moz-box-shadow: -1px 0px 12px 5px #ccc;
+  box-shadow: -1px 0px 12px 5px #ccc;
+}
+
+.banner-container:hover {
+  -webkit-box-shadow: -1px 0px 12px 5px #a9a9a9;
+  -moz-box-shadow: -1px 0px 12px 5px #a9a9a9;
+  box-shadow: -1px 0px 12px 5px #a9a9a9;
+  transition: box-shadow 1s ease-in;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.3em;
+  right: 0.1em;
+}
+
+.close-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  border: 2px solid black;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cta {
+  color: inherit;
+}
+
+/* TEMPLATE ONE  */
+.template-one .banner-content-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.3em;
+  padding: 0.7em 1.5em;
+}
+
+/* styling the cta button */
+
+.template-one .cta-btn .cta {
+  padding: 0.3em 0.5em;
+  border-radius: 0.3em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 0.7em;
+  border-radius: 6px;
+}
+
+.template-one .cta-btn .cta:active {
+  transform: scale(0.95);
+}
+
+/* styling text headline */
+.template-one .text .headline {
+  font-size: 0.8rem;
+}
+
+.template-one .text {
+  display: flex;
+  gap: 0.6em;
+  align-items: center;
+}
+
+/* styling for banner*/
+.template-one .banner-image {
+  padding: 3em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* queries for responsive banner */
+@media (min-width: 720px) {
+  .template-one .banner-content-container {
+    grid-template-columns: 64px 4fr 3fr;
+    justify-content: center;
+    grid-gap: 1.5em;
+  }
+
+  .template-one .text {
+    display: block;
+    text-align: right;
+  }
+
+  /* styling the text in the fullwidth */
+  .template-one .text .headline {
+    line-height: 0.7;
+    font-size: 1rem;
+  }
+
+  .template-one .cta-btn .cta {
+    font-size: 0.8rem;
+  }
+
+  /* styling the logo image */
+  .template-one .logo-image {
+    width: 8em;
+    background-repeat: no-repeat;
+    background-position: 40% 40%;
+    background-size: 64px;
+  }
+
+  .template-one .banner-image {
+    background-size: auto 100%;
+    /* background-repeat: repeat-x; */
+    background-position: 0 50%;
+    width: 100%;
+    background-size: cover;
+  }
+}
+
+/* TEMPLATE TWO THEME */
+
+.template-two .banner-content-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 0.3em;
+}
+
+.template-two .logo-image {
+  padding: 1em;
+  /* width: 5em; */
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 60px;
+}
+
+.template-two .banner-image {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .template-two .banner-content-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0.7em 1.5em;
+  }
+
+  .template-two .logo-image {
+    width: 5em;
+    background-repeat: no-repeat;
+    background-position: 40% 47%;
+    background-size: contain;
+  }
+
+  .template-two .text {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .template-two .text .cta-btn {
+    margin-left: auto;
+    background: red;
+  }
+}
+
+/* TEMPLATE THREE DESIGN */
+
+.template-three .cta-btn {
+  visibility: hidden;
+}
+.template-three .banner-container {
+  display: grid;
+}
+
+.template-three .banner-content-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 0.5em;
+}
+
+.template-three .logo-image {
+  padding: 1.5em;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 80px;
+}
+
+.template-three .banner-image {
+  display: none;
+}
+
+.template-three .text {
+  text-align: center;
+  line-height: 0.9;
+}
+
+ 
+@media (min-width: 520px) {
+  .template-three .logo-image  {
+    background-size: 120px;
+  }
+}
+/* TEMPLATE FOUR DESIGN */
+
+.template-four .banner-content-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Default 2-column layout */
+  padding: 0.4em;
+}
+
+.template-four .logo-image {
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 60px;
+  padding: 2em;
+}
+
+.template-four .banner-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.template-four .text {
+  grid-column: 1 / -1; /* Full width by default (mobile-first) */
+  justify-self: center;
+  text-align: center;
+  
+}
+
+
+
+/* TEMPLATE FIVE DESIGN */
+
+.template-five .banner-content-container {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2ems;
+}
+
+.template-five .logo-image {
+  padding: 2em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.template-five .banner-image {
+  padding: 3em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 1;
+}
+
+.template-five .text {
+  text-align: center;
+  justify-self: center;
+}
+
+.template-five .text .cta-btn button {
+  padding: 0.3em 0.5em;
+  background: red;
+  border-radius: 5px;
+}
+
+
+@media (max-width: 644px) {
+  .template-five .text {
+    font-size: .8rem;
+    /* margin-right: 1.2em; */
+    line-height: 1;
+  }
+}
+
+.close-btn-container .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+  position: absolute;
+  z-index: 1;
+  bottom: -50%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.close-btn-container:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* distance to banner form */
+.ads-banner-control {
+  margin-top: 5em;
+}
+
+/* styling the form container */
+
+/* styling the form header */
+.form-container h2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* styling the form legend */
+.form-container fieldset {
+  display: flex;
+  padding: 0 24px 16px;
+  flex-direction: column;
+  gap: 0.5em;
+  border-radius: 8px;
+}
+
+.form-container fieldset label {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.form-container fieldset input[type="color"] {
+  border: none;
+  outline: 1px solid beige;
+  --webkit-appearance: none;
+  --moz-appearance: none;
+  --ms-appearance: none;
+  padding: 1px;
+  cursor: crosshair;
+  border-radius: 9px;
+  /* height: 22px; */
+  width: 50%;
+
+}
+
+.form-container fieldset input[type="color"]:focus {
+  outline: 1px solid #36c;
+  border: 1px solid gray;
+}
+
+.form-container fieldset input[type="text"] {
+  border: none;
+  outline: none;
+  --webkit-appearance: none;
+  --moz-appearance: none;
+  --ms-appearance: none;
+  background: #f2f2f2;
+  padding: 10px 10px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.form-container fieldset input[type="text"]:focus {
+  background: white;
+  outline: 1px solid #36c;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.6);
+  transition: outline 0.7s ease-in-out, box-shadow 0.7s ease-in-out;
+}
+
+.form-container fieldset input[type="text"]:focus::placeholder {
+  color: transparent;
+  transition: color 0.06s ease-in-out;
+}
+
+/* styling the drag and drop container */
+.drag-drop-container {
+  padding: 0.1em;
+  cursor: pointer;
+}
+
+@media (min-width: 590px) {
+  .drag-drop-container {
+    max-width: 615px;
+  }
+}
+
+.drag-drop-zone {
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1.7px dashed gray;
+}
+
+.drag-drop-zone .drag-files > .drag-file-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: red;
+}
+
+.drag-drop-zone .drag-files > .drag-file-content p {
+  text-align: center;
+}
+.drag-files {
+  text-align: center;
+}
+
+.drag-drop-zone .selected-image {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.drag-drop-zone .selected-image img {
+  width: 30%;
+}
+
+.drag-drop-zone .drag-files button {
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #e3e3e3;
+}
+
+.drag-drop-zone .drop-files {
+  display: grid;
+  place-content: center;
+  padding: 1.5em;
+}
+
+.drag-drop-zone .actions {
+  display: flex;
+  gap: 0.3em;
+}
+
+.drag-drop-zone .actions button {
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  cursor: pointer;
+}
+
+.drag-drop-zone .actions .upload {
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+/* STYLING FOR ERROR FOR HEADLINE TEXT */
+
+.heading-text-input:not(:focus):invalid {
+  border: 2px dashed red;
+}
+
+.heading-text-input:not(:focus):invalid ~ .headline-custom-error {
+  visibility: visible;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.headline-custom-error {
+  visibility: hidden;
+  display: block;
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  opacity: 1;
+  transform: translateY(-4px);
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*  settling the styling for helper texts */
+#bg-desc {
+  color: gray;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* styling the toggle button  */
+
+input[type="checkbox"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.toggle-button {
+  cursor: pointer;
+  text-indent: -99999px;
+  width: 35px;
+  height: 15px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  padding: 0.3em;
+}
+
+.toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.4s ease-in;
+}
+
+input:checked + label {
+  background: #292929;
+}
+
+input:checked + .toggle-button::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.toggle-button:active::after {
+  width: 130px;
+}
+
+.toggle-switch {
+  all: unset; /* Removes default styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50px; /* Optional: match toggle style */
+  padding: 5px;
+}
+
+/* styling the visibility toggle heading */
+.visibility-cta-text {
+  font-weight: 800;
+  line-height: 0.2em;
+}
+
+.visibility-helper-text {
+  font-size: 0.9em;
+  color: black;
+}
+
+.visibility-container {
+  display: flex;
+}
+
+.toggle-switch {
+  margin-left: auto;
+}
+
+.style-btn {
+  border: none;
+  margin-right: 0.2em;
+  padding: 0.1em 0.2em;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.style-btn.active {
+  background-color: #e3e3e3;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+
+.style-btn .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+  position: absolute;
+  z-index: 1;
+  bottom: -50%;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.style-btn:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.text-formatter-container .format-buttons {
+  /* display: flex; */
+  gap: 0.3em;
+}
+
+/* styling the select template select tag */
+.select-option-tag {
+  padding: 0.3em 0.2em;
+  margin-top: 0;
+  width: 50%;
+}
+
+@media (max-width: 452px) {
+  .select-option-tag {
+    width: 65%;
+  }
+}
+/* setting width to content size  */
+
+#ctaBtnText {
+  width: 50%;
+}
+
+.template-popover {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+
+/* STYLING THE BACKDROP  */
+
+[popover] {
+  position: fixed;
+  inset: 0;
+  max-width: 420px;
+  width: fit-content;
+  height: fit-content;
+  border: solid;
+  padding: 2em;
+  margin: minmax(2em, auto);
+  border-left: 20px solid gray;
+  border-radius: 8px;
+}
+
+::backdrop {
+  backdrop-filter: blur(3px);
+}
+
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  /* Your responsive styles here */
+  [popover] {
+    width: 220px;
+    padding: 1.5em;
+  }
+}
+
+.popover-btn .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: 25px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.popover-btn:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+#cta-btn-text,
+#ctaBorder {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+#cta-btn-container {
+  display: flex;
+  justify-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+[popover]:not(:popover-open) {
+  display: none !important;
+}
+
+@media (max-width: 412) {
+  [popover] {
+    display: none !important;
+  }
+}

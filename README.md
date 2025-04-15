@@ -129,29 +129,9 @@ Create a `.env` file in your project root with these variables (use your actual 
 3. **Preview the Banner**:
    - View the banner in real-time and test its responsiveness.
 
----
-
-## Where Users Can Get Help with the Project
-If you encounter any issues or have questions, feel free to:
-
-- **Open an Issue**:
-  - Visit the [GitHub Issues page](https://github.com/your-username/repo-name/issues) to report bugs or request features.
-
----
 
 
----
-## Who Maintains and Contributes to the Project
-This project is maintained by:
-- Konyhea
 
-
-We welcome contributions from the community! If you'd like to contribute, please:
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Submit a pull request with a detailed description of your changes.
-
----
 
 ## Technologies Used
 - **Frontend Framework**: React
