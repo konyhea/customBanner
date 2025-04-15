@@ -251,7 +251,7 @@ function CustomBanner() {
   });
 
   // handle cta backgroundColor
-  const [ctaBg, setCtaBg] = useState(bannerStyle.color);
+  const [ctaBg, setCtaBg] = useState('#f5f5f5');
 
   const handleCtaBg = (e) => {
     setCtaBg(e.target.value);
