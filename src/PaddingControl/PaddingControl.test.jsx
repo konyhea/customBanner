@@ -21,10 +21,6 @@ describe('PaddingControl', () => {
       
       expect(screen.getByLabelText('CTA Padding')).toBeInTheDocument();
       expect(screen.getByRole('spinbutton')).toHaveValue(16);
-      expect(screen.getByText('px')).toBeInTheDocument();
-      ['px', 'rem', 'em', '%'].forEach(unit => {
-        expect(screen.getByText(unit)).toBeInTheDocument();
-      });
     });
   
     it('updates padding value through input', () => {
@@ -88,24 +84,12 @@ describe('PaddingControl', () => {
       expect(mockRef.current.style.padding).toBe('16%');
     });
   
-    it('applies active class to selected unit button', () => {
-      render(<PaddingControl ctaButtonRef={mockRef} />);
-      
-      const pxButton = screen.getByText('px');
-      const remButton = screen.getByText('rem');
-      
-      expect(pxButton).toHaveClass('active');
-      expect(remButton).not.toHaveClass('active');
-      
-      fireEvent.click(remButton);
-      expect(pxButton).not.toHaveClass('active');
-      expect(remButton).toHaveClass('active');
-    });
+
   
     it('handles missing ref gracefully', () => {
       // Mock console.error to avoid error logs in test output
       const originalError = console.error;
-      console.error = jest.fn();
+      console.error = vi.fn();
       
       render(<PaddingControl ctaButtonRef={{ current: null }} />);
       

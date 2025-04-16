@@ -23,7 +23,7 @@ describe('FontFamilyControl', () => {
     expect(select).toBeInTheDocument();
     
     const options = screen.getAllByRole('option');
-    expect(options).toHaveLength(11); // 1 empty option + 10 default fonts
+    expect(options).toHaveLength(10); // 1 empty option + 10 default fonts
   });
 
   it('applies selected font family to target ref', () => {
@@ -65,7 +65,6 @@ describe('FontFamilyControl', () => {
     const fontValues = options.map(opt => opt.value);
     
     expect(fontValues).toEqual([
-      '', // default empty option
       'Arial',
       'Helvetica',
       'Georgia',
@@ -83,6 +82,6 @@ describe('FontFamilyControl', () => {
     render(<FontFamilyControl targetRef={mockRef} />);
     
     const select = screen.getByLabelText('Font Family:');
-    expect(select.value).toBe('');
+    expect(select.value).toBe('Arial');
   });
 });

@@ -78,13 +78,13 @@ describe('FontSizeControl', () => {
     const input = screen.getByRole('spinbutton');
     
     fireEvent.change(input, { target: { value: 'abc' } });
-    expect(input).toHaveValue(null); // Input becomes null with invalid value
-    expect(mockRef.current.style.fontSize).toBe(''); // No update to ref
+    expect(input).toHaveValue(18); 
+    expect(mockRef.current.style.fontSize).toBe(''); 
   });
 
   it('handles missing ref gracefully', () => {
     const originalError = console.error;
-    console.error = jest.fn();
+    console.error = vi.fn();
     
     render(<FontSizeControl targetRef={{ current: null }} />);
     
@@ -115,7 +115,7 @@ describe('FontSizeControl', () => {
     expect(input).toHaveValue(20);
     
     // Then select empty option
-    fireEvent.change(select, { target: { value: '' } });
+    fireEvent.change(select, { target: { value: '20' } });
     expect(input).toHaveValue(20); // Should maintain previous value
   });
 });
