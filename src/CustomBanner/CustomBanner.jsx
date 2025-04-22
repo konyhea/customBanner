@@ -167,6 +167,7 @@ function CustomBanner() {
     }
   };
 
+  console.log(import.meta.env.VITE_CLOUDINARY_API_KEY)
   // Upload banner image to Cloudinary
   const uploadBannerImage = async () => {
     console.log("logoFile state:", bannerFile); // Debugging: Log the logoFile state
